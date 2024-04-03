@@ -19,7 +19,7 @@ spring:
 mybatis:
   auto-mapping-behavior: none
   mapper-locations: "classpath:mapper/*.xml"
-  type-aliases-package: "com.example.hellospringboot.mapper"
+  type-aliases-package: "com.example.hellospringcloud.mapper"
   configuration:
     cache-enabled: true
 

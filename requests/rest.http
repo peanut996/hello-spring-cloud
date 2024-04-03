@@ -1,2 +1,5 @@
 ###
 GET http://replica1:8002/eureka/apps
+
+###
+GET http://localhost:8080/users
