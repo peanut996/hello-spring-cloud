@@ -1,0 +1,2 @@
+###
+GET http://replica1:8002/eureka/apps
