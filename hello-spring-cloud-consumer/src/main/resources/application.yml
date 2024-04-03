@@ -15,4 +15,4 @@ hystrix:
           thread:
             timeoutInMilliseconds: 2000
 service-url:
-  hello-service: http://HELLO-SERVICE
+  hello-spring-cloud-provider: http://hello-spring-cloud-provider
