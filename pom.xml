@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>hello-spring-cloud-eureka</module>
+        <module>hello-spring-boot</module>
     </modules>
 
     <properties>
