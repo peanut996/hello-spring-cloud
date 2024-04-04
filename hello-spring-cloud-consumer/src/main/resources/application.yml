@@ -10,9 +10,13 @@ eureka:
 hystrix:
   command:
     default:
+      circuitBreaker:
+        requestVolumeThreshold: 0 #失败一次直接熔断
       execution:
         isolation:
           thread:
             timeoutInMilliseconds: 2000
+
+
 service-url:
   hello-spring-cloud-provider: http://hello-spring-cloud-provider
