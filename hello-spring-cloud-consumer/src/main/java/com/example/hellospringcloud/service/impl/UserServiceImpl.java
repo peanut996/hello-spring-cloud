@@ -1,30 +1,25 @@
 package com.example.hellospringcloud.service.impl;
 
+import com.example.hellospringcloud.client.ProviderClient;
 import com.example.hellospringcloud.service.UserService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.util.Strings;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private final RestTemplate restTemplate;
-
-    @Value("${service-url.hello-spring-cloud-provider}")
-    private String provider;
+    /**
+     * idea会提示more than one bean，但是实际上feign会自动管理
+     */
+    private final ProviderClient providerClient;
 
     @Override
-    @HystrixCommand(fallbackMethod = "getDefaultUsers", commandProperties = {@HystrixProperty(name = "fallback.enabled", value = "true")})
     public String getUsers() {
         log.info("开始调用");
-        return restTemplate.getForEntity(provider + "/users", String.class).getBody();
+        return providerClient.getUsers();
     }
 
 
