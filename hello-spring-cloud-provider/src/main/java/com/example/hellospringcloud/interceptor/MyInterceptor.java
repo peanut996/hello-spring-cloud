@@ -4,7 +4,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import jakarta.servlet.http.*;
+import javax.servlet.http.*;
+
 
 @Component
 public class MyInterceptor implements HandlerInterceptor {
