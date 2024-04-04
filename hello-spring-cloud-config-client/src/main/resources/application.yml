@@ -8,7 +8,8 @@ spring:
   cloud:
     config: #Config客户端配置
       profile: dev #启用配置后缀名称
-      name: application #配置文件名称
+      name: another #配置文件名称
+      label: v1.0
 eureka:
   client:
     service-url:

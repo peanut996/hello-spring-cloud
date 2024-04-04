@@ -29,4 +29,4 @@ GET http://127.0.0.1:8901/hello-spring-cloud-config-client-dev.yml
 GET http://127.0.0.1:9001/configInfo
 
 ### config client with config update
-GET http://127.0.0.1:10001/configInfo
+GET http://127.0.0.1:10005/configInfo
