@@ -13,3 +13,9 @@ GET http://127.0.0.1:8801/consumer/users
 
 ### zuul
 GET http://127.0.0.1:8801/provider/users
+
+### gateway
+GET http://127.0.0.1:9201/hello-spring-cloud-provider/users
+
+### gateway
+GET http://127.0.0.1:9201/hello-spring-cloud-consumer/users
