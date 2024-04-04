@@ -1,0 +1,18 @@
+server:
+  port: 8801
+spring:
+  application:
+    name: hello-spring-cloud-zuul
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8002/eureka/
+
+zuul:
+  routes: #给服务配置路由
+    hello-spring-cloud-provider:
+      path: /provider/**
+    hello-spring-cloud-consumer:
+      path: /consumer/**

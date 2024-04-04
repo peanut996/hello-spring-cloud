@@ -1,8 +1,15 @@
-###
-GET http://replica1:8002/eureka/apps
-
-###
+### provider
 GET http://127.0.0.1:8080/apps
 
-###
+### provider
+GET http://127.0.0.1:8080/users
+
+### consumer
 GET http://127.0.0.1:9000/users
+
+
+### zuul
+GET http://127.0.0.1:8801/consumer/users
+
+### zuul
+GET http://127.0.0.1:8801/provider/users
