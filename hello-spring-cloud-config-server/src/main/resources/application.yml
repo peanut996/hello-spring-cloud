@@ -1,0 +1,16 @@
+server:
+  port: 8901
+spring:
+  profiles:
+    active: native
+  application:
+    name: hello-spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: "classpath:/config"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8002/eureka/

@@ -2,7 +2,7 @@ server:
   port: 9201
 spring:
   application:
-    name: api-gateway
+    name: hello-spring-cloud-api-gateway
   cloud:
     gateway:
       discovery:

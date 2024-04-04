@@ -19,3 +19,14 @@ GET http://127.0.0.1:9201/hello-spring-cloud-provider/users
 
 ### gateway
 GET http://127.0.0.1:9201/hello-spring-cloud-consumer/users
+
+
+### config server
+
+GET http://127.0.0.1:8901/hello-spring-cloud-config-client-dev.yml
+
+### config client
+GET http://127.0.0.1:9001/configInfo
+
+### config client with config update
+GET http://127.0.0.1:10001/configInfo
