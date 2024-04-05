@@ -4,7 +4,7 @@ spring:
   cloud:
     stream:
       bindings:
-        input:
+        custom:
           group: hello-spring-cloud-consumer
           destination: hello-spring-cloud-topic
           content-type: application/json
