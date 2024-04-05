@@ -1,16 +1,15 @@
 package com.example.hellospringcloud.service.impl;
 
-import com.example.hellospringcloud.message.UserMessage;
-import com.example.hellospringcloud.message.channel.ProviderChannel;
+import com.example.hellospringcloud.event.UserEvent;
+import com.example.hellospringcloud.message.publisher.UserEventPublisher;
 import com.example.hellospringcloud.model.User;
 import com.example.hellospringcloud.repository.UserRepository;
 import com.example.hellospringcloud.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.cloud.bus.BusProperties;
+import org.springframework.cloud.bus.event.PathDestinationFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,15 +21,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    private MessageChannel output;
+    private final UserEventPublisher userEventPublisher;
 
-    @Autowired
-    public UserServiceImpl(@Qualifier(ProviderChannel.OUTPUT) MessageChannel output, UserRepository userRepository) {
-        this.userRepository = userRepository;
-        this.output = output;
-    }
+    private final PathDestinationFactory destinationFactory;
+
+    private final BusProperties busProperties;
+
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
@@ -41,9 +39,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void publish() {
         log.info("已发送消息");
-        output.send(MessageBuilder.withPayload(UserMessage.builder()
-                        .code("0")
-                        .msg("update").build())
-                .build());
+        User user = userRepository.list().get(0);
+        UserEvent event = new UserEvent(user, busProperties.getId(), destinationFactory.getDestination("**"),
+                "0", "msg");
+        userEventPublisher.publishEvent(event);
     }
 }

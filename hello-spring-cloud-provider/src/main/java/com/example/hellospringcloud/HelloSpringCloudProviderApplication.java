@@ -1,14 +1,13 @@
 package com.example.hellospringcloud;
 
-import com.example.hellospringcloud.message.channel.ProviderChannel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.bus.jackson.RemoteApplicationEventScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan("com.example.hellospringcloud.*")
 @SpringBootApplication
-@EnableBinding({ProviderChannel.class})
+@RemoteApplicationEventScan
 public class HelloSpringCloudProviderApplication {
 
     public static void main(String[] args) {
