@@ -1,11 +1,15 @@
-#spring:
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/db
-#    username: root
-#    password: 123456
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-
 spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: hello-spring-cloud-topic
+          content-type: application/json
+      kafka:
+        binder:
+          brokers: localhost
+          defaultBrokerPort: 9092
+          zkNodes: localhost
   application:
     name: hello-spring-cloud-provider
   datasource:
@@ -26,4 +30,4 @@ mybatis:
 eureka:
   client:
     serviceUrl:
-      defaultZone: "http://localhost:8002/eureka/, http://localhost:8003/eureka/"
+      defaultZone: "http://localhost:8002/eureka/"

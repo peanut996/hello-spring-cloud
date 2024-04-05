@@ -1,12 +1,24 @@
 spring:
   application:
     name: hello-spring-cloud-consumer
+  cloud:
+    stream:
+      bindings:
+        input:
+          group: hello-spring-cloud-consumer
+          destination: hello-spring-cloud-topic
+          content-type: application/json
+      kafka:
+        binder:
+          brokers: localhost
+          defaultBrokerPort: 9092
+          zkNodes: localhost
 server:
   port: 9000
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8002/eureka/, http://localhost:8002/eureka/
+      defaultZone: http://localhost:8002/eureka/
 
 feign:
   circuitbreaker:

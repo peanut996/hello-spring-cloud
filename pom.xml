@@ -16,6 +16,7 @@
         <module>hello-spring-cloud-gateway</module>
         <module>hello-spring-cloud-config-server</module>
         <module>hello-spring-cloud-config-client</module>
+        <module>hello-spring-cloud-common</module>
     </modules>
 
     <properties>
