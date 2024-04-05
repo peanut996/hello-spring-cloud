@@ -1,6 +1,18 @@
 
 # Hello Spring Cloud
 
+本代码库已集成:
+
+- [x] Spring Boot
+- [x] Spring Cloud
+- [x] Spring Cloud Eureka 
+- [x] Spring Cloud OpenFeign
+- [x] Spring Cloud Zuul
+- [x] Spring Cloud Gateway
+- [x] Spring Cloud Config
+- [x] Spring Cloud Stream (kafka)
+- [ ] Spring Cloud Bus
+
 ## 启动Eureka集群
 
 ```bash
