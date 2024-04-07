@@ -5,3 +5,17 @@ services:
     image: apache/kafka:3.7.0
     ports:
       - "9092:9092"
+  mysql:
+    image: mysql:5.7 # 或 mysql:8.0 根据需要的MySQL版本选择【4】
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306" # 将容器的3306端口映射到宿主机的3306端口【3】
+    environment:
+      MYSQL_ROOT_PASSWORD: "root" # 设置root用户的密码
+      MYSQL_DATABASE: "db" # 创建一个初始数据库
+      MYSQL_USER: "user" # 创建一个用户
+      MYSQL_PASSWORD: "p@ssword" # 设置用户的密码
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/config:/etc/mysql/conf.d
