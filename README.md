@@ -11,7 +11,7 @@
 - [x] Spring Cloud Gateway
 - [x] Spring Cloud Config
 - [x] Spring Cloud Stream (kafka)
-- [ ] Spring Cloud Bus
+- [x] Spring Cloud Bus
 
 ## 启动Eureka集群
 
